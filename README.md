@@ -16,7 +16,7 @@ To install django CMS 3.11 by hand type the following commands:
    ```
 2. Install Django, django CMS and other required packages
    ```
-   pip install djangocms-frontend\[cms]
+   pip install djangocms-frontend\[cms-3]
    ```
 3. Create project `<<project_name>>` using this template
    ```
