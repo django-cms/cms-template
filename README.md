@@ -1,4 +1,4 @@
-# Django template for a new django CMS project
+# Django template for a new django CMS 4 project
 
 A Django template for a typical django CMS installation with no 
 special bells or whistles. It is supposed as a starting point 
@@ -20,7 +20,7 @@ To install django CMS 4 by hand type the following commands:
    ```
 3. Create project `<<project_name>>` using this template
    ```
-   django-admin startproject --template https://github.com/django-cms/cms-template/archive/main.zip <<project_name>>
+   django-admin startproject --template https://github.com/django-cms/cms-template/archive/4.1.zip <<project_name>>
    cd <<project_name>>
    ```
 4. Create database and run checks
