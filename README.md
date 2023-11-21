@@ -16,7 +16,7 @@ To install django CMS 4 by hand type the following commands:
    ```
 2. Install Django, django CMS and other required packages
    ```
-   pip install djangocms-frontend\[cms4] djangocms-versioning djangocms-alias
+   pip install djangocms-frontend\[cms-4] djangocms-versioning djangocms-alias
    ```
 3. Create project `<<project_name>>` using this template
    ```
