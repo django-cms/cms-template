@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'menus',
 
     'djangocms_text_ckeditor',
-    'djangocms_alias',
-    'djangocms_versioning',
 
     'sekizai',
     'treebeard',
@@ -183,9 +181,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# This is a django CMS 4 template
-CMS_CONFIRM_VERSION4 = True
 
 # django CMS requires the site framework
 SITE_ID = 1
