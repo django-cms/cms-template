@@ -37,3 +37,8 @@ To install django CMS 4 by hand type the following commands:
    ./manage.py runserver
    ```
 
+As of django-cms>= version 4.1.0rc5, there is a shortcut menu for steps 3 to 6: 
+
+```
+djangocms <<project_name>>
+```
