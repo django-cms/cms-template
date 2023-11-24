@@ -16,7 +16,7 @@ jobs:
           '3.2', '4.2',
         ]
         django-cms-version: [
-          'django-cms>=4.1.0rc4'
+          'git+https://github.com/django-cms/django-cms@develop-4#egg=django-cms'
         ]
         python-version: ['3.11']
         os: [
