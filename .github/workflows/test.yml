@@ -36,6 +36,6 @@ jobs:
         django-admin startproject testproject --template .
         cd testproject
         python ./manage.py migrate
-        python ./manage.py createsuperuser --username admin --email test@nowhere.com 
+        python ./manage.py createsuperuser --username admin --email test@nowhere.com --noinput
         python ./manage.py cms check
         
