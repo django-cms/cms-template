@@ -37,5 +37,5 @@ jobs:
         cd testproject
         python ./manage.py migrate
         python ./manage.py createsuperuser --username admin --email test@nowhere.com 
-        python ./manage.py cms test
+        python ./manage.py cms check
         
