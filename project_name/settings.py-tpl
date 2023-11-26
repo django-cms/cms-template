@@ -8,7 +8,9 @@ https://docs.djangoproject.com/en/{{ docs_version }}/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
-"""
+
+For the list of django CMS settings and their values, see
+https://docs.django-cms.org/en/release-3.11.x/reference/configuration.html"""
 
 import os
 from pathlib import Path
