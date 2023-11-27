@@ -188,24 +188,36 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # This is a django CMS 4 template
+
 CMS_CONFIRM_VERSION4 = True
 
 # django CMS requires the site framework
+# https://docs.django-cms.org/en/latest/how_to/multi-site.html
+
 SITE_ID = 1
 
 # A base template is part of this setup
+# https://docs.django-cms.org/en/latest/reference/configuration.html#cms-templates
+
 CMS_TEMPLATES = (
     ("base.html", _("Standard")),
 )
 
 # Enable permissions
+# https://docs.django-cms.org/en/latest/topics/permissions.html
+
 CMS_PERMISSION = True
 
-# Allow admin sidebar
+# Allow admin sidebar to open admin URLs
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Enable inline editing with djangocms-text-ckeditor
+# https://github.com/django-cms/djangocms-text-ckeditor#inline-editing-feature
+
 TEXT_INLINE_EDITING = True
+
+# Add project-wide static files directory
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#staticfiles-dirs
 
 STATICFILES_DIRS = [
     BASE_DIR / "{{ project_name }}" / "static",
@@ -214,5 +226,8 @@ STATICFILES_DIRS = [
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# Add project-wide static files directory
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#media-root
 
 MEDIA_ROOT = str(BASE_DIR.parent / "media")
