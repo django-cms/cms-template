@@ -224,6 +224,13 @@ STATICFILES_DIRS = [
     BASE_DIR / "{{ project_name }}" / "static",
 ]
 
+# Add a Ckeditor setting to allow icons being shown within the editor
+# https://djangocms-frontend.readthedocs.io/en/latest/components.html#icon-plugins-inside-text-plugins
+
+CKEDITOR_SETTINGS = {
+    "stylesSet": f"default:icon/ckeditor.icons.js",
+}
+
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
