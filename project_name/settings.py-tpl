@@ -231,4 +231,5 @@ INTERNAL_IPS = [
 # Add project-wide static files directory
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#media-root
 
+MEDIA_URL = "/media/"
 MEDIA_ROOT = str(BASE_DIR.parent / "media")
