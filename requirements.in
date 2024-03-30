@@ -1,3 +1,5 @@
-djangocms-frontend[cms-4]
 djangocms-versioning
 djangocms-alias
+djangocms-frontend
+django-filer
+djangocms-text-ckeditor
