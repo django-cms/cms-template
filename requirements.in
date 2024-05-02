@@ -3,3 +3,4 @@ djangocms-alias
 djangocms-frontend
 django-filer
 djangocms-text-ckeditor
+django-fsm<3
