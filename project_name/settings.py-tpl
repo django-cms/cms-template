@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'djangocms_text',
     'djangocms_picture',
+    'diangocms_link',
     'djangocms_alias',
     'djangocms_versioning',
 
