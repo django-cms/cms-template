@@ -2,4 +2,5 @@ djangocms-versioning
 djangocms-alias
 django-filer
 djangocms-text
+djangocms-link
 djangocms-picture
