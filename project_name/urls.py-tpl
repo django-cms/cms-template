@@ -22,7 +22,7 @@ from django.urls import include, path
 from django.views.i18n import JavaScriptCatalog
 
 urlpatterns = [
-    include('', include('djangocms_rest.urls')),
+    path('', include('djangocms_rest.urls')),
 ] + i18n_patterns(
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('admin/', admin.site.urls),
