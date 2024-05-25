@@ -4,3 +4,4 @@ django-filer
 djangocms-text
 djangocms-link
 djangocms-picture
+git+https://github.com/fsbraun/djangocms-rest@main
