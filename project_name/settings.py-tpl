@@ -62,6 +62,9 @@ INSTALLED_APPS = [
 
     'filer',
     'easy_thumbnails',
+
+    'djangocms_rest',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
