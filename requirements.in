@@ -1,3 +1,4 @@
+django<5.1  # Temporarily pin Django to <5.1 until easy-thumbnails is compatible
 djangocms-versioning
 djangocms-alias
 djangocms-frontend
