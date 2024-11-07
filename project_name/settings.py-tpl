@@ -213,9 +213,14 @@ CMS_PERMISSION = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Enable inline editing with djangocms-text-ckeditor
-# https://github.com/django-cms/djangocms-text-ckeditor#inline-editing-feature
+# https://github.com/django-cms/djangocms-text#inline-editing-feature
 
 TEXT_INLINE_EDITING = True
+
+# Allow deletion of version objects
+# https://djangocms-versioning.readthedocs.io/en/latest/settings.html#DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS
+
+DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
 
 # Add project-wide static files directory
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#staticfiles-dirs
