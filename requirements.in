@@ -2,5 +2,5 @@ djangocms-versioning
 djangocms-alias
 djangocms-frontend
 django-filer
-djangocms-text-ckeditor
+djangocms-text
 django-fsm<3
