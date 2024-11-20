@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'cms',
     'menus',
 
-    'djangocms_text_ckeditor',
+    'djangocms_text',
     'djangocms_alias',
     'djangocms_versioning',
 
@@ -212,7 +212,7 @@ CMS_PERMISSION = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-# Enable inline editing with djangocms-text-ckeditor
+# Enable inline editing with djangocms-text
 # https://github.com/django-cms/djangocms-text#inline-editing-feature
 
 TEXT_INLINE_EDITING = True
