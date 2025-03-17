@@ -211,6 +211,3 @@ INTERNAL_IPS = [
 ]
 
 MEDIA_ROOT = str(BASE_DIR.parent / "media")
-
-CMS_CONFIRM_VERSION4 = True
-
