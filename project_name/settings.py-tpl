@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'menus',
 
     'djangocms_text',
+    'djangocms_link',
     'djangocms_alias',
     'djangocms_versioning',
 
