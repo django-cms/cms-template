@@ -1,6 +1,6 @@
 djangocms-versioning
 djangocms-alias
-djangocms-frontend>=2.0.0a1
+djangocms-frontend>=2.0.0
 django-filer
 djangocms-text
 django-fsm<3
