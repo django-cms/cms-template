@@ -13,11 +13,11 @@ jobs:
       fail-fast: false
       matrix:
         django-version: [
-          '3.2', '4.2', ‘5.0', '5.1'
+          '4.2', ‘5.0', '5.1', '5.2'
         ]
-        python-version: ['3.11']
+        python-version: ['3.13']
         os: [
-          ubuntu-20.04,
+          ubuntu-latest,
         ]
 
     steps:
