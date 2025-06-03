@@ -4,3 +4,4 @@ djangocms-frontend>=2.0.0a1
 django-filer
 djangocms-text
 django-fsm<3
+djangocms-simple-admnin-style
