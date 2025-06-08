@@ -1,4 +1,3 @@
-git+https://github.com/fsbraun/django-cms@feat/data-bridge
 djangocms-versioning
 djangocms-alias
 django-filer
