@@ -65,6 +65,7 @@ INSTALLED_APPS = [
 
     'djangocms_rest',
     'rest_framework',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -213,3 +214,8 @@ INTERNAL_IPS = [
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = str(BASE_DIR.parent / "media")
+
+# Add default schema for drf-spectacular
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema',
+}
