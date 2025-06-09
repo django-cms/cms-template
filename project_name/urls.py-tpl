@@ -21,8 +21,14 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.i18n import JavaScriptCatalog
 
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
+
 urlpatterns = [
-    path('', include('djangocms_rest.urls')),
+    # OpenAPI schema and documentation
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/', include('djangocms_rest.urls')),
 ] + i18n_patterns(
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('admin/', admin.site.urls),
