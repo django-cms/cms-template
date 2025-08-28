@@ -1,9 +1,9 @@
-git+https://github.com/django-cms/django-cms@release/5.0.x
+django-cms
 djangocms-versioning
 djangocms-alias
 django-filer
 djangocms-text
 djangocms-link
 djangocms-picture
-git+https://github.com/django-cms/djangocms-rest@main
+djangocms-rest
 drf-spectacular
