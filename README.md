@@ -1,4 +1,4 @@
-# Django template for a new django CMS 4 project
+# Django template for a new django CMS headless project
 
 A Django template for a typical django CMS installation with no 
 special bells or whistles. It is supposed as a starting point 
