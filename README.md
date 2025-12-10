@@ -7,7 +7,7 @@ for new projects.
 If you prefer a different set of template settings, feel free to 
 create your own templates by cloning this repo.
 
-To install django CMS 4 by hand type the following commands:
+To install django CMS 5 by hand type the following commands:
 
 1. Create virtual environment and activate it
    ```
