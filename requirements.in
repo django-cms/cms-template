@@ -5,5 +5,5 @@ django-filer
 djangocms-text
 djangocms-link
 djangocms-picture
-djangocms-rest
+git+https://github.com/django-cms/djangocms-rest
 drf-spectacular
