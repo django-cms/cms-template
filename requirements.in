@@ -3,4 +3,4 @@ djangocms-alias<3
 djangocms-frontend>=2.0.0
 django-filer
 djangocms-text
-django-fsm<3
+django-treebeard!=5.0.3
