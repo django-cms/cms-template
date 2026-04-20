@@ -19,7 +19,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -96,13 +96,13 @@ MIDDLEWARE = [
     'cms.middleware.language.LanguageCookieMiddleware',
 ]
 
-ROOT_URLCONF = '{{ project_name }}.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, "{{ project_name }}", "templates"),
+            os.path.join(BASE_DIR, "templates"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,7 +126,7 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
-WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -135,7 +135,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / '..' / 'db.sqlite3',
     }
 }
 
@@ -227,7 +227,7 @@ DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#staticfiles-dirs
 
 STATICFILES_DIRS = [
-    BASE_DIR / "{{ project_name }}" / "static",
+    BASE_DIR / "static",
 ]
 
 INTERNAL_IPS = [
