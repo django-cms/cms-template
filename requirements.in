@@ -5,7 +5,7 @@ djangocms-simple-admin-style
 django-parler
 {% if versioning %}djangocms-versioning
 {% endif %}{% if alias %}djangocms-alias
-{% endif %}{% if moderation %}djangocms-moderation
+{% endif %}{% if moderation %}git+https://github.com/django-cms/djangocms-moderation@master
 {% endif %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
 {% endif %}{% if stories %}djangocms-stories
 {% endif %}
