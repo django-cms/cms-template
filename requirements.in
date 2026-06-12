@@ -2,7 +2,8 @@ djangocms-frontend>=2.0.0
 django-filer
 djangocms-text
 djangocms-simple-admin-style
-django-parler{% if versioning %}djangocms-versioning
+django-parler
+{% if versioning %}djangocms-versioning
 {% endif %}{% if alias %}djangocms-alias
 {% endif %}{% if moderation %}djangocms-moderation
 {% endif %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
