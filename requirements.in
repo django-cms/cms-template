@@ -6,5 +6,5 @@ djangocms-simple-admin-style
 {% if versioning %}djangocms-versioning
 {% endif %}{% if alias %}djangocms-alias
 {% endif %}{% if moderation %}djangocms-moderation
-{% endir %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
+{% endif %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
 {% endif %}
