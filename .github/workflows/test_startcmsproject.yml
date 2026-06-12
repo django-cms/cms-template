@@ -69,4 +69,4 @@ jobs:
         source ./.venv/bin/activate
         python -m pip install --upgrade pip
         python -m pip install Django~=${{ matrix.django-version }} django-cms
-        djangocms mysite --noinput --template https://github.com/${{ github.repository }}/archive/${{ github.head_ref || github.ref_name }}.zip
+        djangocms mysite --noinput --name requirements.in --template https://github.com/${{ github.repository }}/archive/${{ github.head_ref || github.ref_name }}.zip
