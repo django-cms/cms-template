@@ -25,7 +25,7 @@ urlpatterns = i18n_patterns(
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('admin/', admin.site.urls),
     path('filer/', include('filer.urls')),{% if stories %}
-    path('taggit_autosuggest', include('taggit_autosuggest.urls')){% endif %}{% if mode == "hybrid" or mode == "headless" %}
+    path('taggit_autosuggest', include('taggit_autosuggest.urls')),{% endif %}{% if mode == "hybrid" or mode == "headless" %}
     path('api', include("djangocms_rest.urls")),{% endif %}{% if mode == "hybrid" or mode == "traditional" %}
     path('', include('cms.urls')),{% endif %}
 )
