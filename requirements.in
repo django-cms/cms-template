@@ -1,7 +1,10 @@
-djangocms-versioning
-djangocms-alias
 djangocms-frontend>=2.0.0a1
 django-filer
 djangocms-text
 django-fsm<3
 djangocms-simple-admin-style
+{% if versioning %}djangocms-versioning
+{% endif %}{% if alias %}djangocms-alias
+{% endif %}{% if moderation %}djangocms-moderation
+{% endir %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
+{% endif %}

@@ -51,10 +51,19 @@ INSTALLED_APPS = [
     'menus',
 
     'djangocms_text',
-    'djangocms_link',
-    'djangocms_alias',
-    'djangocms_versioning',
-
+    'djangocms_link',{% if alias %}
+    'djangocms_alias',{% endif %}{% if versioning %}
+    'djangocms_versioning',{% endif %}{% if moderation %}
+    'djangocms_moderation',{% endif %}
+{% if stories %}
+    'djangocms_stories',
+    'taggit',
+    'taggit-autosuggest',
+{% endif %}
+{% if mode == "headless" or mode == "hybrid" %}
+    'djangocms_rest',
+    'rest_framework',
+{% endif %}
     'sekizai',
     'treebeard',
     'parler',
@@ -197,12 +206,18 @@ CMS_CONFIRM_VERSION4 = True
 
 SITE_ID = 1
 
-# A base template is part of this setup
+{% if mode == "headless" %}# A setting to define which placeholders are used
+
+CMS_PLACEHOLDERS = (
+    ("base.html", ("content", "Content"))
+)
+{% else %}# A base template is part of this setup
 # https://docs.django-cms.org/en/{% if cms_docs_version %}release-{{ cms_docs_version }}.x{% else %}latest{% endif %}/reference/configuration.html#cms-templates
 
 CMS_TEMPLATES = (
     ("base.html", _("Standard")),
 )
+{% endif %}
 
 # Enable permissions
 # https://docs.django-cms.org/en/{% if cms_docs_version %}release-{{ cms_docs_version }}.x{% else %}latest{% endif %}/topics/permissions.html
