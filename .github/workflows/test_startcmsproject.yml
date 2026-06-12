@@ -7,6 +7,42 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  validate-install-rules:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+    - name: Validate djangocms_install_rules.json against its schema
+      run: |
+        python -m pip install jsonschema
+        python << 'EOF'
+        import json
+        import os
+        import sys
+        import jsonschema
+
+        with open("djangocms_install_rules.json") as f:
+            doc = json.load(f)
+
+        schema_file = os.path.basename(doc.get("$schema", ""))
+        if not schema_file:
+            sys.exit("djangocms_install_rules.json has no $schema reference")
+        if not os.path.exists(schema_file):
+            sys.exit(f"Referenced schema {schema_file} not found in repository")
+
+        with open(schema_file) as f:
+            schema = json.load(f)
+
+        jsonschema.Draft7Validator.check_schema(schema)
+        errors = list(jsonschema.Draft7Validator(schema).iter_errors(doc))
+        for error in errors:
+            print(f"ERROR at {list(error.absolute_path)}: {error.message}")
+        sys.exit(1 if errors else 0)
+        EOF
+
   create-project:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -33,4 +69,4 @@ jobs:
         source ./.venv/bin/activate
         python -m pip install --upgrade pip
         python -m pip install Django~=${{ matrix.django-version }} django-cms
-        djangocms mysite --noinput --template https://github.com/${{ github.repository }}/archive/${{ github.head_ref || github.ref_name }}.zip
+        djangocms mysite --noinput --name requirements.in --template https://github.com/${{ github.repository }}/archive/${{ github.head_ref || github.ref_name }}.zip

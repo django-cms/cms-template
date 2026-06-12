@@ -1,0 +1,196 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/django-cms/cms-template/main/djangocms_install_rules.schema.v1.json",
+    "title": "django CMS install rules",
+    "description": "Rules used by `djangocms .` to add django CMS to an existing Django project. Fetched from the cms-template repository (branch matching the installed django CMS major.minor), with the bundled file as fallback.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Free-form documentation; ignored by the installer."
+        },
+        "installed_apps": {
+            "type": "array",
+            "description": "Apps to add to INSTALLED_APPS. Items are appended unless a before/after anchor is given.",
+            "items": {
+                "$ref": "#/definitions/anchoredRule"
+            }
+        },
+        "middleware": {
+            "type": "array",
+            "description": "Middleware to add to MIDDLEWARE. Items are appended unless a before/after anchor is given.",
+            "items": {
+                "$ref": "#/definitions/anchoredRule"
+            }
+        },
+        "context_processors": {
+            "type": "array",
+            "description": "Context processors to append to the template OPTIONS.",
+            "items": {
+                "$ref": "#/definitions/itemsRule"
+            }
+        },
+        "settings": {
+            "type": "array",
+            "description": "Settings snippets to append to settings.py if the named setting is not already defined.",
+            "items": {
+                "$ref": "#/definitions/settingRule"
+            }
+        },
+        "urls": {
+            "type": "array",
+            "description": "URL patterns to add to the project urlpatterns.",
+            "items": {
+                "$ref": "#/definitions/urlRule"
+            }
+        },
+        "packages": {
+            "type": "object",
+            "description": "Maps an installed app or module name to its pip requirement, where the two differ.",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "template_dir": {
+            "type": "object",
+            "description": "Template directory to create, with an optional base template to seed it.",
+            "additionalProperties": false,
+            "required": ["path"],
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "Directory (relative to the project root) to create and register in TEMPLATES['DIRS']."
+                },
+                "base_template": {
+                    "type": "string",
+                    "description": "Filename of the base template to create inside the template directory."
+                },
+                "base_template_content": {
+                    "type": "string",
+                    "description": "Initial content of the base template."
+                },
+                "when": {
+                    "$ref": "#/definitions/when"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "when": {
+            "type": "object",
+            "description": "Condition for applying a rule. All given criteria must match.",
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+                "flag": {
+                    "type": "string",
+                    "description": "Name of a command option that must be truthy (e.g. \"versioning\" for --versioning)."
+                },
+                "mode": {
+                    "type": "array",
+                    "description": "The rule applies if the --mode value is one of these.",
+                    "minItems": 1,
+                    "items": {
+                        "enum": ["traditional", "headless", "hybrid"]
+                    }
+                }
+            }
+        },
+        "itemsRule": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["items"],
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "when": {
+                    "$ref": "#/definitions/when"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
+        "anchoredRule": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["items"],
+            "not": {
+                "required": ["before", "after"]
+            },
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "before": {
+                    "type": "string",
+                    "description": "Existing entry before which the items are inserted."
+                },
+                "after": {
+                    "type": "string",
+                    "description": "Existing entry after which the items are inserted."
+                },
+                "when": {
+                    "$ref": "#/definitions/when"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
+        "settingRule": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "snippet"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Setting name; the snippet is only added if this setting is not already defined."
+                },
+                "snippet": {
+                    "type": "string",
+                    "description": "Python code appended to settings.py. May contain {language_code}/{language_name} placeholders."
+                },
+                "when": {
+                    "$ref": "#/definitions/when"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
+        "urlRule": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["pattern"],
+            "properties": {
+                "pattern": {
+                    "type": "string",
+                    "description": "Python expression for the URL pattern, e.g. path(\"\", include(\"cms.urls\"))."
+                },
+                "when": {
+                    "$ref": "#/definitions/when"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
