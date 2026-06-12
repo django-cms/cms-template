@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 {% if stories %}
     'djangocms_stories',
     'taggit',
-    'taggit-autosuggest',
+    'taggit_autosuggest',
     'parler',
 {% endif %}
 {% if mode == "headless" or mode == "hybrid" %}
