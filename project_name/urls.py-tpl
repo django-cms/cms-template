@@ -27,7 +27,7 @@ urlpatterns = i18n_patterns(
     path('filer/', include('filer.urls')),{% if stories %}
     path('taggit_autosuggest', include('taggit_autosuggest.urls')){% endif %}{% if mode == "hybrid" or mode == "headless" %}
     path('api', include("djangocms_rest.urls"))),{% endif %}{% if mode == "hybrid" or mode == "traditional" %}
-    path('', include('cms.urls')),
+    path('', include('cms.urls')),{% endif %}
 )
 
 
