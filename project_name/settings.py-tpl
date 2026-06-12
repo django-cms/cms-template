@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'djangocms_stories',
     'taggit',
     'taggit-autosuggest',
+    'parler',
 {% endif %}
 {% if mode == "headless" or mode == "hybrid" %}
     'djangocms_rest',
@@ -66,7 +67,6 @@ INSTALLED_APPS = [
 {% endif %}
     'sekizai',
     'treebeard',
-    'parler',
 
     'filer',
     'easy_thumbnails',
