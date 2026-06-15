@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/django-cms/cms-template/main/djangocms_install_rules.schema.v1.json",
-    "comment": "Rules used by `djangocms .` to add django CMS to an existing project. Fetched from the cms-template repository (branch matching the installed django CMS major.minor), with this file as the bundled fallback. Each `when` condition may contain a `flag` (truthy command option) and/or a `mode` (list of matching --mode values). For installed_apps and middleware a rule may also carry a `before` or `after` anchor (an existing entry) for positional insertion; otherwise items are appended.",
+    "comment": "Rules used by `djangocms .` to add django CMS to an existing project. Fetched from the cms-template repository (branch matching the installed django CMS major.minor), with this file as the bundled fallback. Each `when` condition may contain a `flag` (truthy command option) and/or a `mode` (list of matching --mode values). For installed_apps and middleware a rule may also carry a `before` or `after` anchor (an existing entry) for positional insertion; otherwise items are appended. A url rule may carry `\"i18n\": true` to route its pattern through `i18n_patterns()` (so the CMS catch-all keeps its language prefix) when the project's urls.py already uses i18n_patterns; otherwise the pattern is added to the plain urlpatterns list.",
     "installed_apps": [
         {"items": ["djangocms_simple_admin_style"], "before": "django.contrib.admin"},
         {
@@ -72,7 +72,7 @@
     "urls": [
         {"pattern": "path(\"api/\", include(\"djangocms_rest.urls\"))", "when": {"mode": ["headless", "hybrid"]}},
         {"pattern": "path(\"taggit_autosuggest/\", include(\"taggit_autosuggest.urls\"))", "when": {"flag": "stories"}},
-        {"pattern": "path(\"\", include(\"cms.urls\"))", "when": {"mode": ["traditional", "hybrid"]}}
+        {"pattern": "path(\"\", include(\"cms.urls\"))", "i18n": true, "when": {"mode": ["traditional", "hybrid"]}}
     ],
     "packages": {
         "filer": "django-filer"

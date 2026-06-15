@@ -208,6 +208,10 @@
                     "type": "string",
                     "description": "Python expression for the URL pattern, e.g. path(\"\", include(\"cms.urls\"))."
                 },
+                "i18n": {
+                    "type": "boolean",
+                    "description": "Route this pattern through i18n_patterns() (so it keeps a language prefix) when the project's urls.py already uses i18n_patterns; otherwise it is added to the plain urlpatterns list. Used for the CMS catch-all."
+                },
                 "when": {
                     "$ref": "#/definitions/when"
                 },
