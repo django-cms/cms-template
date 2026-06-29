@@ -8,4 +8,5 @@ django-parler
 {% endif %}{% if moderation %}djangocms-moderation
 {% endif %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
 {% endif %}{% if stories %}djangocms-stories
+django-taggit-autosuggest  # Can be dropped for djangocms-stories >= 0.9.3
 {% endif %}
