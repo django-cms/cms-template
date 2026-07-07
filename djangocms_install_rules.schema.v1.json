@@ -13,6 +13,14 @@
             "type": "string",
             "description": "Free-form documentation; ignored by the installer."
         },
+        "options": {
+            "type": "object",
+            "description": "Template-owned command options. The djangocms command uses these to build parser options, defaults and interactive prompts.",
+            "minProperties": 1,
+            "additionalProperties": {
+                "$ref": "#/definitions/option"
+            }
+        },
         "installed_apps": {
             "type": "array",
             "description": "Apps to add to INSTALLED_APPS. Items are appended unless a before/after anchor is given.",
@@ -59,7 +67,8 @@
             "type": "object",
             "description": "Maps an installed app or module name to its pip requirement, where the two differ.",
             "additionalProperties": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]+(>=[0-9][A-Za-z0-9_.-]*)?$"
             }
         },
         "template_dir": {
@@ -90,6 +99,86 @@
         }
     },
     "definitions": {
+        "option": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/booleanOption"
+                },
+                {
+                    "$ref": "#/definitions/choiceOption"
+                }
+            ]
+        },
+        "booleanOption": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "default"],
+            "properties": {
+                "type": {
+                    "const": "boolean"
+                },
+                "default": {
+                    "type": "boolean"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Prompt label shown in interactive mode."
+                },
+                "help": {
+                    "type": "string",
+                    "description": "argparse help text."
+                },
+                "requires": {
+                    "$ref": "#/definitions/requires"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
+        "choiceOption": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "default", "choices"],
+            "properties": {
+                "type": {
+                    "const": "choice"
+                },
+                "default": {
+                    "type": "string"
+                },
+                "choices": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Prompt label shown in interactive mode."
+                },
+                "help": {
+                    "type": "string",
+                    "description": "argparse help text."
+                },
+                "requires": {
+                    "$ref": "#/definitions/requires"
+                },
+                "comment": {
+                    "type": "string"
+                }
+            }
+        },
+        "requires": {
+            "type": "object",
+            "description": "Simple option dependencies. Each key is another option name and the value it must have.",
+            "minProperties": 1,
+            "additionalProperties": {
+                "type": ["boolean", "string", "number"]
+            }
+        },
         "when": {
             "type": "object",
             "description": "Condition for applying a rule. All given criteria must match.",
