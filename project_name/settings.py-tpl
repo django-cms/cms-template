@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'djangocms_link',{% if alias %}
     'djangocms_alias',{% endif %}{% if versioning %}
     'djangocms_versioning',{% endif %}{% if moderation %}
-    'djangocms_moderation',{% endif %}
+    'djangocms_moderation',{% endif %}{% if history %}
+    'djangocms_history',{% endif %}
 {% if stories %}
     'djangocms_stories',
     'taggit',

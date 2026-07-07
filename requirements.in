@@ -8,4 +8,5 @@ django-parler
 {% endif %}{% if moderation %}djangocms-moderation
 {% endif %}{% if mode == "headless" or mode == "hybrid" %}djangocms-rest
 {% endif %}{% if stories %}djangocms-stories
+{% endif %}{% if history %}djangocms-history>=3
 {% endif %}
