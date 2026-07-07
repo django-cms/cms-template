@@ -1,4 +1,4 @@
-# Django template for a new django CMS 4 project
+# Django template for a new django CMS 5.1 project
 
 A Django template for a typical django CMS installation with no 
 special bells or whistles. It is supposed as a starting point 
@@ -7,7 +7,7 @@ for new projects.
 If you prefer a different set of template settings, feel free to 
 create your own templates by cloning this repo.
 
-To install django CMS 4 by hand type the following commands:
+To install django CMS 5.1 by hand type the following commands:
 
 1. Create virtual environment and activate it
    ```
