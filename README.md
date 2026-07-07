@@ -53,11 +53,11 @@ djangocms <<project_name>> --mode hybrid --history
 
 ## Installation rules
 
-`djangocms_install_rules.json` is also used when adding django CMS to an
-existing Django project:
+`djangocms_install_rules.json` is also used when **adding django CMS to an
+existing Django project**:
 
 ```
-djangocms . --mode hybrid --history
+djangocms . --mode hybrid --stories
 ```
 
 The file describes command option metadata, apps, middleware, settings, URL
