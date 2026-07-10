@@ -1,6 +1,6 @@
 name: djangocms mysite test
 
-on: [push, pull_request]
+on: [pull_request]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -46,7 +46,7 @@ jobs:
   create-project:
     runs-on: ${{ matrix.os }}
     env:
-      CMS_VERSION: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+      CMS_VERSION: ${{ github.base_ref || github.ref_name }}
     strategy:
       fail-fast: false
       matrix:
