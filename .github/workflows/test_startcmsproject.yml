@@ -1,6 +1,6 @@
 name: djangocms mysite test
 
-on: [push, pull_request]
+on: [pull_request]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -45,11 +45,13 @@ jobs:
 
   create-project:
     runs-on: ${{ matrix.os }}
+    env:
+      CMS_VERSION: ${{ github.base_ref || github.ref_name }}
     strategy:
       fail-fast: false
       matrix:
         django-version: [
-          '5.2', '6.0', '6.1a1'
+          '5.2', '6.0', '6.1'
         ]
         python-version: ['3.13']
         os: [
@@ -68,5 +70,5 @@ jobs:
         python -m venv .venv
         source ./.venv/bin/activate
         python -m pip install --upgrade pip
-        python -m pip install Django~=${{ matrix.django-version }} django-cms
+        python -m pip install "Django~=${{ matrix.django-version }}" "django-cms~=${CMS_VERSION}"
         djangocms mysite --noinput --name requirements.in --template https://github.com/${{ github.repository }}/archive/${{ github.head_ref || github.ref_name }}.zip
